@@ -36,9 +36,9 @@ class DetailsViewController: UIViewController {
     let timeSelect: DropDown = {
         let timeSelect = DropDown()
         timeSelect.dataSource = [
-            "8:30",
-            "9:30",
-            "10:30"
+            "8:30-9:30",
+            "9:30-10:30",
+            "10:30-11:30"
         
         ]
         
@@ -47,11 +47,11 @@ class DetailsViewController: UIViewController {
     
     let gym: GYM
     //let reservation:Reservation
-   // weak var delegate: ChangeGymDelegate?
+    weak var delegate: addBooking?
     
-    init(gym: GYM){
+    init(gym: GYM, delegate: addBooking){
         
-        
+        self.delegate = delegate
         self.gym = gym
         super.init(nibName: nil, bundle: nil)
     }
@@ -67,14 +67,14 @@ class DetailsViewController: UIViewController {
         
         title = gym.gymName
 
-//        saveinfo.setTitle("save reservation", for: .normal)
-//        saveinfo.setTitleColor(.systemBlue, for: .normal)
-//        saveinfo.addTarget(self, action: #selector(addres), for: .touchUpInside)
-//        saveinfo.translatesAutoresizingMaskIntoConstraints = false
-//        view.addSubview(saveinfo)
-//        saveinfo.backgroundColor = .lightGray
-//        saveinfo.clipsToBounds = true
-//        saveinfo.layer.cornerRadius = 10
+        saveinfo.setTitle("save reservation", for: .normal)
+        saveinfo.setTitleColor(.systemBlue, for: .normal)
+        saveinfo.addTarget(self, action: #selector(addRes), for: .touchUpInside)
+        saveinfo.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(saveinfo)
+        saveinfo.backgroundColor = .lightGray
+        saveinfo.clipsToBounds = true
+        saveinfo.layer.cornerRadius = 10
 
         menuOpen.setTitle("select time", for: .normal)
         menuOpen.addTarget(self, action: #selector(openMenu), for: .touchUpInside)
@@ -144,14 +144,14 @@ class DetailsViewController: UIViewController {
         
         
  
-//        NSLayoutConstraint.activate([
-//            saveinfo.topAnchor.constraint(equalTo:menuOpen.bottomAnchor, constant: 20),
-//            saveinfo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            saveinfo.widthAnchor.constraint(equalToConstant: 200 ),
-//            saveinfo.heightAnchor.constraint(equalToConstant: 40)
-//
-//
-//        ])
+        NSLayoutConstraint.activate([
+            saveinfo.topAnchor.constraint(equalTo:menuOpen.bottomAnchor, constant: 20),
+            saveinfo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            saveinfo.widthAnchor.constraint(equalToConstant: 200 ),
+            saveinfo.heightAnchor.constraint(equalToConstant: 40)
+
+
+        ])
         NSLayoutConstraint.activate([
             menuOpen.topAnchor.constraint(equalTo:datePicker.bottomAnchor, constant: 20),
             menuOpen.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -164,17 +164,17 @@ class DetailsViewController: UIViewController {
         
         
     }
-//
-//   @objc func addRes(){
-//
-//       let newRes = Reservation(time: setTime, date: date, gym: gym.gymName)
-//       delegate?.changeDetails(newRes: newRes)
-//
-//
-//
-//       self.navigationController?.popViewController(animated: true)
-//
-//    }
+
+   @objc func addRes(){
+
+       let newRes = Reservation(time: setTime, date: date, gym: gym.gymName)
+       delegate?.addRes(res: newRes)
+
+
+
+       self.navigationController?.popViewController(animated: true)
+
+    }
     @objc func openMenu(){
         timeSelect.show()
         
@@ -189,6 +189,6 @@ class DetailsViewController: UIViewController {
 ////    func changeDetails(newRes:Reservation)
 //
 //}
-//protocol addBooking: BookingsViewController{
-//    func addRes(res: Reservation)
-//}
+protocol addBooking: ViewController{
+    func addRes(res: Reservation)
+}

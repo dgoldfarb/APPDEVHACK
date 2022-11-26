@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController{
     
     var gyms: [GYM] = []
+    var reservations: [Reservation] = []
     let GymTable = UITableView()
     let reusableidentifier = "contactResueidentifier"
     let appearance = UINavigationBarAppearance()
@@ -32,6 +33,10 @@ class ViewController: UIViewController{
         let morrison = GYM(gympic: "reis", name: "Reis Tennis Courts")
         let teagle = GYM(gympic: "grumman", name: "Grumman Squash Courts")
         let badminton = GYM(gympic: "badminton", name: "Badminton courts")
+        let res1 = Reservation(time: "10:30", date: "thursday", gym: "newman")
+        
+        
+        
 //        let badh = Song(songpic: "lacy1", name: "Bad Habbit", artist:"Steve Lacy", album: "Gemini Rights" )
 //        let darkr = Song(songpic: "lacy2", name: "Dark Red", artist:"Steve Lacy", album: "Demo" )
 //        let pablo = Song(songpic: "pablo", name: "Pt2", artist:"Kanye", album: "Life of Pablo" )
@@ -40,7 +45,8 @@ class ViewController: UIViewController{
 //        let rage = Song(songpic: "rage", name: "Ballin", artist:"Lil Uzi", album: "Luv is Rage" )
 //        let paris = Song(songpic: "midnight", name: "Anti-Hero", artist:"Taylor Swift", album: "Midnights" )
 //
-        gyms = [newman,noyes,morrison,teagle, badminton]//,badh,darkr,pablo,Uzi,Yeeus,rage,paris]
+        gyms = [newman,noyes,morrison,teagle, badminton]
+        reservations = [res1]//,badh,darkr,pablo,Uzi,Yeeus,rage,paris]
         
         GymTable.translatesAutoresizingMaskIntoConstraints = false
         GymTable.backgroundColor = .white
@@ -84,7 +90,7 @@ class ViewController: UIViewController{
         
     }
     @objc func openBooked(){
-        navigationController?.pushViewController(BookingsViewController(), animated: true)
+        navigationController?.pushViewController(BookingsViewController(reservations: reservations), animated: true)
     }
     
 
@@ -121,8 +127,17 @@ extension ViewController: UITableViewDelegate{
         
         
        // let cell = GymTable.cellForRow(at: indexPath) as! songTableTableViewCell
-        navigationController?.pushViewController(DetailsViewController(gym: gyms[indexPath.row]), animated: true)
+        navigationController?.pushViewController(DetailsViewController(gym: gyms[indexPath.row], delegate: self), animated: true)
     }
+
+}
+
+extension ViewController: addBooking{
+    func addRes(res: Reservation) {
+        reservations.append(res)
+        
+    }
+
 
 }
 

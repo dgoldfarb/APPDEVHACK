@@ -34,10 +34,12 @@ class ReservationTableViewCell: UITableViewCell {
     }
     
     func setupContraints(){
-        
+        let padding:CGFloat = 10
         NSLayoutConstraint.activate([
+            
             gym.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            gym.topAnchor.constraint(equalTo: contentView.topAnchor)
+            gym.topAnchor.constraint(equalTo: contentView.topAnchor,constant: padding),
+            //contentView.topAnchor.constraint(equalTo: gym.topAnchor, constant: -100)
         
         ])
         NSLayoutConstraint.activate([
@@ -48,7 +50,8 @@ class ReservationTableViewCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             time.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            time.topAnchor.constraint(equalTo: date.bottomAnchor)
+            time.topAnchor.constraint(equalTo: date.bottomAnchor),
+            contentView.bottomAnchor.constraint(equalTo: time.bottomAnchor, constant: padding)
         
         ])
         

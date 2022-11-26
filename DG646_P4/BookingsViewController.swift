@@ -18,6 +18,14 @@ class BookingsViewController: UIViewController, UITableViewDelegate {
     var reservations: [Reservation] = []
     let reservedTable = UITableView()
     let reusableidentifier = "reservationReuseidentifier"
+    init(reservations: [Reservation]){
+        self.reservations = reservations
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
 
     override func viewDidLoad() {
@@ -31,10 +39,7 @@ class BookingsViewController: UIViewController, UITableViewDelegate {
         reservedTable.dataSource = self
         reservedTable.delegate = self
         reservedTable.register(ReservationTableViewCell.self, forCellReuseIdentifier: reusableidentifier)
-        let res1 = Reservation(time: "10:30", date: "thursday", gym: "newman")
         
-        
-        reservations = [res1]
         
         
         
@@ -88,13 +93,6 @@ extension BookingsViewController: UITableViewDataSource{
     
 }
 
-//extension BookingsViewController: addBooking{
-//    func addRes(res: Reservation) {
-//        reservations.append(res)
-//        reservedTable.reloadData()
-//    }
-//
-//
-//}
+
 
     
