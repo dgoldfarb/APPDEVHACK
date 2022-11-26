@@ -56,8 +56,11 @@ class ViewController: UIViewController{
         GymTable.register(songTableTableViewCell.self, forCellReuseIdentifier: reusableidentifier)
         
         bookings.setTitle("see my bookings", for: .normal)
+        bookings.setTitleColor(.black, for: .normal)
         bookings.addTarget(self, action: #selector(openBooked), for: .touchUpInside)
         bookings.backgroundColor = .lightGray
+        bookings.clipsToBounds = false
+        bookings.layer.cornerRadius = 10
         bookings.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(bookings)
         

@@ -25,6 +25,7 @@ class DetailsViewController: UIViewController {
         datePicker.datePickerMode = .date
         datePicker.preferredDatePickerStyle = .compact
         datePicker.tintColor = .blue
+        
         return datePicker
     }()
     var dateFormatter: DateFormatter{
@@ -68,7 +69,7 @@ class DetailsViewController: UIViewController {
         title = gym.gymName
 
         saveinfo.setTitle("save reservation", for: .normal)
-        saveinfo.setTitleColor(.systemBlue, for: .normal)
+        saveinfo.setTitleColor(.black, for: .normal)
         saveinfo.addTarget(self, action: #selector(addRes), for: .touchUpInside)
         saveinfo.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(saveinfo)
@@ -81,11 +82,16 @@ class DetailsViewController: UIViewController {
         menuOpen.backgroundColor = .lightGray
         menuOpen.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(menuOpen)
+        menuOpen.clipsToBounds = false
+        menuOpen.layer.cornerRadius = 10
+        menuOpen.setTitleColor(.black, for: .normal)
 
         timeSelect.backgroundColor = .lightGray
         timeSelect.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(timeSelect)
         timeSelect.anchorView = menuOpen
+        timeSelect.clipsToBounds = false
+        timeSelect.cornerRadius = 10
         
         
         
@@ -137,6 +143,7 @@ class DetailsViewController: UIViewController {
             datePicker.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             
+            
         
         ])
         
@@ -166,18 +173,31 @@ class DetailsViewController: UIViewController {
     }
 
    @objc func addRes(){
-
-       let newRes = Reservation(time: setTime, date: date, gym: gym.gymName)
-       delegate?.addRes(res: newRes)
-
-
-
-       self.navigationController?.popViewController(animated: true)
+       
+       if (setTime == ""){
+           
+           invalidtimeAlert()
+           
+       }
+       else{
+           
+           let newRes = Reservation(time: setTime, date: date, gym: gym.gymName)
+           delegate?.addRes(res: newRes)
+           
+           
+           
+           self.navigationController?.popViewController(animated: true)
+       }
 
     }
     @objc func openMenu(){
         timeSelect.show()
         
+    }
+    @objc func invalidtimeAlert(){
+        let alert = UIAlertController(title: "You are missing a time", message: "Please select a time", preferredStyle: .alert)
+        present(alert, animated: true)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel))
     }
     
 
