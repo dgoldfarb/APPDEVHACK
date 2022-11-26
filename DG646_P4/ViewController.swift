@@ -134,7 +134,7 @@ extension ViewController: UITableViewDelegate{
 
 extension ViewController: addBooking{
     func addRes(res: Reservation) {
-        reservations.append(res)
+        reservations.insert(res, at: 0)
         
     }
 
