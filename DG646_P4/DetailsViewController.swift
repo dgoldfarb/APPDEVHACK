@@ -13,6 +13,7 @@ class DetailsViewController: UIViewController {
     
     let cover = UIImageView()
     let bookingLable = UILabel()
+    
     let name = UITextView()
     let saveinfo = UIButton()
     var setTime = ""
@@ -75,7 +76,7 @@ class DetailsViewController: UIViewController {
 //        saveinfo.clipsToBounds = true
 //        saveinfo.layer.cornerRadius = 10
 
-        menuOpen.setTitle("selecttime", for: .normal)
+        menuOpen.setTitle("select time", for: .normal)
         menuOpen.addTarget(self, action: #selector(openMenu), for: .touchUpInside)
         menuOpen.backgroundColor = .lightGray
         menuOpen.translatesAutoresizingMaskIntoConstraints = false
@@ -86,14 +87,22 @@ class DetailsViewController: UIViewController {
         view.addSubview(timeSelect)
         timeSelect.anchorView = menuOpen
         
+        
+        
+        
 
         timeSelect.selectionAction = { index, title in
 //            self.feature2.text.append(title)
             self.setTime = String(title)
+            
+            self.menuOpen.setTitle(title, for: .normal)
 
         }
         
+        
+        
         bookingLable.text = "Booking Details:"
+        
         bookingLable.font = .systemFont(ofSize: 20)
         bookingLable.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(bookingLable)
@@ -130,6 +139,8 @@ class DetailsViewController: UIViewController {
             
         
         ])
+        
+        
         
         
  
