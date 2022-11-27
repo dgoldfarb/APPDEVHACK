@@ -22,14 +22,16 @@ class gymTableViewCell: UITableViewCell {
         contentView.backgroundColor = .white
         
         cover.clipsToBounds = true
-        cover.layer.cornerRadius = 20
+        cover.layer.cornerRadius = 10
         cover.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(cover)
+        cover.contentMode = .scaleAspectFill
         
         
         nameText.textColor = .black
         nameText.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(nameText)
+        
         
         
 
@@ -61,13 +63,9 @@ class gymTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             nameText.topAnchor.constraint(equalTo: cover.bottomAnchor),
             nameText.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 20),
-//            nameText.heightAnchor.constraint(equalToConstant: 10)
 
-        ])
-        NSLayoutConstraint.activate([
-            contentView.leadingAnchor.constraint(equalTo: cover.leadingAnchor)
-        
-        ])
+
+
 
        
         
