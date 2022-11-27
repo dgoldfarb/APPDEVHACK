@@ -64,8 +64,8 @@ class gymTableViewCell: UITableViewCell {
             nameText.topAnchor.constraint(equalTo: cover.bottomAnchor),
             nameText.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 20),
 
-
-
+        ])
+    
 
        
         
