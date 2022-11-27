@@ -116,7 +116,7 @@ class DetailsViewController: UIViewController {
         datePicker.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(datePicker)
         
-        date = (dateFormatter.string(from: datePicker.date))
+        
         
 
         
@@ -173,6 +173,7 @@ class DetailsViewController: UIViewController {
     }
 
    @objc func addRes(){
+       date = (dateFormatter.string(from: datePicker.date))
        
        if (setTime == ""){
            
