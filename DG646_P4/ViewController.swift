@@ -24,7 +24,7 @@ class ViewController: UIViewController{
         
         appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
         appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
-        appearance.backgroundColor = .white
+        appearance.backgroundColor = .systemYellow
         navigationItem.standardAppearance = appearance
         navigationItem.scrollEdgeAppearance = appearance
         
@@ -37,28 +37,21 @@ class ViewController: UIViewController{
         
         
         
-//        let badh = Song(songpic: "lacy1", name: "Bad Habbit", artist:"Steve Lacy", album: "Gemini Rights" )
-//        let darkr = Song(songpic: "lacy2", name: "Dark Red", artist:"Steve Lacy", album: "Demo" )
-//        let pablo = Song(songpic: "pablo", name: "Pt2", artist:"Kanye", album: "Life of Pablo" )
-//        let Uzi = Song(songpic: "uzi", name: "Myron", artist:"Lil Uzi", album: "Lil Uzi Vert vs. the World 2" )
-//        let Yeeus = Song(songpic: "Yeezus", name: "Bound2", artist:"Kanye", album: "Yeezus" )
-//        let rage = Song(songpic: "rage", name: "Ballin", artist:"Lil Uzi", album: "Luv is Rage" )
-//        let paris = Song(songpic: "midnight", name: "Anti-Hero", artist:"Taylor Swift", album: "Midnights" )
-//
+
         gyms = [newman,noyes,morrison,teagle, badminton]
-        reservations = [res1]//,badh,darkr,pablo,Uzi,Yeeus,rage,paris]
+        reservations = [res1]
         
         GymTable.translatesAutoresizingMaskIntoConstraints = false
         GymTable.backgroundColor = .white
         view.addSubview(GymTable)
         GymTable.dataSource = self
         GymTable.delegate = self
-        GymTable.register(songTableTableViewCell.self, forCellReuseIdentifier: reusableidentifier)
+        GymTable.register(gymTableViewCell.self, forCellReuseIdentifier: reusableidentifier)
         
         bookings.setTitle("see my bookings", for: .normal)
         bookings.setTitleColor(.black, for: .normal)
         bookings.addTarget(self, action: #selector(openBooked), for: .touchUpInside)
-        bookings.backgroundColor = .lightGray
+        bookings.backgroundColor = .systemYellow
         bookings.clipsToBounds = false
         bookings.layer.cornerRadius = 10
         bookings.translatesAutoresizingMaskIntoConstraints = false
@@ -79,6 +72,7 @@ class ViewController: UIViewController{
             GymTable.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,constant: -50),
             GymTable.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             GymTable.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+            
         ])
         NSLayoutConstraint.activate([
             bookings.topAnchor.constraint(equalTo: GymTable.bottomAnchor, constant: 10),
@@ -111,7 +105,7 @@ extension ViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = GymTable.dequeueReusableCell(withIdentifier: reusableidentifier, for:  indexPath) as? songTableTableViewCell{
+        if let cell = GymTable.dequeueReusableCell(withIdentifier: reusableidentifier, for:  indexPath) as? gymTableViewCell{
             cell.configure(song: gyms[indexPath.row])
             return cell
         }

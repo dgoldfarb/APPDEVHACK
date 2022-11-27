@@ -7,7 +7,7 @@
 
 import UIKit
 
-class songTableTableViewCell: UITableViewCell {
+class gymTableViewCell: UITableViewCell {
     
     let cover = UIImageView()
     var nameText = UILabel()
@@ -32,15 +32,7 @@ class songTableTableViewCell: UITableViewCell {
         contentView.addSubview(nameText)
         
         
-//        artistText.textColor = .white
-//        artistText.translatesAutoresizingMaskIntoConstraints = false
-//        contentView.addSubview(artistText)
-//
-//        albumText.textColor = .white
-//        albumText.translatesAutoresizingMaskIntoConstraints = false
-//        contentView.addSubview(albumText)
-        
-    
+
     }
     
     func configure(song: GYM){
@@ -61,7 +53,9 @@ class songTableTableViewCell: UITableViewCell {
             cover.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             cover.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             cover.topAnchor.constraint(equalTo: contentView.topAnchor),
-            cover.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,constant: -40)
+            cover.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,constant: -40),
+            
+            
         
         ])
         NSLayoutConstraint.activate([
@@ -70,14 +64,11 @@ class songTableTableViewCell: UITableViewCell {
 //            nameText.heightAnchor.constraint(equalToConstant: 10)
 
         ])
-//        NSLayoutConstraint.activate([
-//            artistText.leadingAnchor.constraint(equalTo: cover.trailingAnchor, constant: 10),
-//            artistText.centerYAnchor.constraint(equalTo:contentView.centerYAnchor)
-//        ])
-//        NSLayoutConstraint.activate([
-//            albumText.leadingAnchor.constraint(equalTo: cover.trailingAnchor, constant: 10),
-//            albumText.centerYAnchor.constraint(equalTo:contentView.centerYAnchor, constant: 20)
-//        ])
+        NSLayoutConstraint.activate([
+            contentView.leadingAnchor.constraint(equalTo: cover.leadingAnchor)
+        
+        ])
+
        
         
         

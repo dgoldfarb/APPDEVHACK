@@ -13,7 +13,7 @@ class DetailsViewController: UIViewController {
     
     let cover = UIImageView()
     let bookingLable = UILabel()
-    
+    let appearance = UINavigationBarAppearance()
     let name = UITextView()
     let saveinfo = UIButton()
     var setTime = ""
@@ -93,12 +93,17 @@ class DetailsViewController: UIViewController {
         timeSelect.clipsToBounds = false
         timeSelect.cornerRadius = 10
         
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
+        appearance.backgroundColor = .systemYellow
+        navigationItem.standardAppearance = appearance
+        navigationItem.scrollEdgeAppearance = appearance
+        
         
         
         
 
         timeSelect.selectionAction = { index, title in
-//            self.feature2.text.append(title)
             self.setTime = String(title)
             
             self.menuOpen.setTitle(title, for: .normal)
@@ -206,10 +211,7 @@ class DetailsViewController: UIViewController {
 
 }
 
-//protocol ChangeGymDelegate: UITableViewCell{
-////    func changeDetails(newRes:Reservation)
-//
-//}
+
 protocol addBooking: ViewController{
     func addRes(res: Reservation)
 }

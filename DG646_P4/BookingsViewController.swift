@@ -14,7 +14,7 @@ class BookingsViewController: UIViewController, UITableViewDelegate {
     
 
     
-    
+    let appearance = UINavigationBarAppearance()
     var reservations: [Reservation] = []
     let reservedTable = UITableView()
     let reusableidentifier = "reservationReuseidentifier"
@@ -40,7 +40,11 @@ class BookingsViewController: UIViewController, UITableViewDelegate {
         reservedTable.delegate = self
         reservedTable.register(ReservationTableViewCell.self, forCellReuseIdentifier: reusableidentifier)
         
-        
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
+        appearance.backgroundColor = .systemYellow
+        navigationItem.standardAppearance = appearance
+        navigationItem.scrollEdgeAppearance = appearance
         
         
         setupConstraints()
@@ -60,15 +64,6 @@ class BookingsViewController: UIViewController, UITableViewDelegate {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
