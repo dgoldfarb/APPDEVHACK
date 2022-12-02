@@ -21,7 +21,7 @@ class ViewController: UIViewController{
         super.viewDidLoad()
         title = "Fitness Centers"
         view.backgroundColor = .white
-        
+        navigationItem.hidesBackButton = true
         appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
         appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
         appearance.backgroundColor = .systemYellow
