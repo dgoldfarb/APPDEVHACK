@@ -44,7 +44,7 @@ class LoginViewController: UIViewController {
         loginButton.setTitle("Login", for: .normal)
         loginButton.setTitleColor(.black, for: .normal)
         loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
-        loginButton.backgroundColor = .systemYellow
+        loginButton.backgroundColor = .lightGray
         loginButton.clipsToBounds = false
         loginButton.layer.cornerRadius = 10
         loginButton.layer.borderWidth = 1
@@ -55,7 +55,7 @@ class LoginViewController: UIViewController {
         registerButton.setTitle("Register", for: .normal)
         registerButton.setTitleColor(.black, for: .normal)
         registerButton.addTarget(self, action: #selector(register), for: .touchUpInside)
-        registerButton.backgroundColor = .systemYellow
+        registerButton.backgroundColor = .lightGray
         registerButton.clipsToBounds = false
         registerButton.layer.cornerRadius = 10
         registerButton.layer.borderWidth = 1
@@ -110,6 +110,7 @@ class LoginViewController: UIViewController {
     
     @objc func login(){
         navigationController?.pushViewController(ViewController(), animated: true)
+        let user = User(email: emailText.text!, password: passwordText.text!)
         
     }
     @objc func register(){
