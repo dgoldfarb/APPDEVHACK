@@ -4,7 +4,6 @@
 //
 //  Created by David Goldfarb on 10/24/22.
 //
-
 import UIKit
 
 class gymTableViewCell: UITableViewCell {
@@ -83,12 +82,3 @@ class gymTableViewCell: UITableViewCell {
     }
 
 }
-//extension songTableTableViewCell: ChangeGymDelegate{
-//    func changeDetails(newname: String, newartist: String, newalbum: String) {
-//        nameText.text = newname
-//        artistText.text=newartist
-//        albumText.text=newalbum
-//    }
-//
-//
-//}

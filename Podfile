@@ -8,5 +8,6 @@ target 'DG646_P4' do
   # Pods for DG646_P4
 
 pod 'DropDown'
+pod 'Alamofire', '~> 5.5'
 
 end

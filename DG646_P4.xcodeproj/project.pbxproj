@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		098F1312ABE97F5BD37ECF0C /* Pods_DG646_P4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 635EB0B060E1E39BF4971176 /* Pods_DG646_P4.framework */; };
 		8F1EC5DB2939B00D00DFAB7D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1EC5DA2939B00C00DFAB7D /* LoginViewController.swift */; };
+		8F1EC5DD293A69D000DFAB7D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1EC5DC293A69D000DFAB7D /* NetworkManager.swift */; };
 		8F26F8A3293085340097C66E /* BookingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F26F8A2293085340097C66E /* BookingsViewController.swift */; };
 		8F26F8A5293174A60097C66E /* ReservationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F26F8A4293174A60097C66E /* ReservationTableViewCell.swift */; };
 		8FBD4A852906E5B50029FE7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBD4A842906E5B50029FE7C /* AppDelegate.swift */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		635EB0B060E1E39BF4971176 /* Pods_DG646_P4.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DG646_P4.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F1EC5DA2939B00C00DFAB7D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8F1EC5DC293A69D000DFAB7D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8F26F8A2293085340097C66E /* BookingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingsViewController.swift; sourceTree = "<group>"; };
 		8F26F8A4293174A60097C66E /* ReservationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationTableViewCell.swift; sourceTree = "<group>"; };
 		8FBD4A812906E5B50029FE7C /* DG646_P4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DG646_P4.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +101,7 @@
 				8FBD4A9E2906F4370029FE7C /* gymTableViewCell.swift */,
 				8FBD4A9C2906EC8E0029FE7C /* DetailsViewController.swift */,
 				8FBD4A9A2906E93B0029FE7C /* Song obj.swift */,
+				8F1EC5DC293A69D000DFAB7D /* NetworkManager.swift */,
 				8F1EC5DA2939B00C00DFAB7D /* LoginViewController.swift */,
 				8F26F8A4293174A60097C66E /* ReservationTableViewCell.swift */,
 				8FBD4A8A2906E5B50029FE7C /* Main.storyboard */,
@@ -226,6 +229,7 @@
 			files = (
 				8F1EC5DB2939B00D00DFAB7D /* LoginViewController.swift in Sources */,
 				8F26F8A3293085340097C66E /* BookingsViewController.swift in Sources */,
+				8F1EC5DD293A69D000DFAB7D /* NetworkManager.swift in Sources */,
 				8FBD4A892906E5B50029FE7C /* ViewController.swift in Sources */,
 				8FBD4A852906E5B50029FE7C /* AppDelegate.swift in Sources */,
 				8FBD4A9B2906E93B0029FE7C /* Song obj.swift in Sources */,

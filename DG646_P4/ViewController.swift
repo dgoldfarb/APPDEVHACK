@@ -10,11 +10,14 @@ import UIKit
 class ViewController: UIViewController{
     
     var gyms: [GYM] = []
+    var locationData: [Location] = []
+    var facilityData: [Facility] = []
     var reservations: [Reservation] = []
     let GymTable = UITableView()
     let reusableidentifier = "contactResueidentifier"
     let appearance = UINavigationBarAppearance()
     let bookings = UIButton()
+    
    
 
     override func viewDidLoad() {
@@ -61,6 +64,7 @@ class ViewController: UIViewController{
         
         
         setupconstraints()
+       // createDummyData()
      
     }
     
@@ -82,11 +86,30 @@ class ViewController: UIViewController{
            
         ])
         
- 
- 
 
-        
     }
+    //this would all be for networking but did not get backend routes in time
+//    func createDummyData() {
+//        // MARK: Use getAllLocations
+//
+//
+//        NetworkManager.getAllLocations { location in
+//            self.locationData = location
+//
+//
+//            //self.postTableView.reloadData()
+//        }
+//    }
+//
+//    func getLocationIds(){
+//        locationData.forEach { location in
+//            NetworkManager.getAllFacilities(loccationId: location.id) { facility in
+//                self.facilityData += facility
+//            }
+//
+//
+//        }
+//    }
     @objc func openBooked(){
         navigationController?.pushViewController(BookingsViewController(reservations: reservations), animated: true)
     }

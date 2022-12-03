@@ -110,10 +110,13 @@ class LoginViewController: UIViewController {
     
     @objc func login(){
         navigationController?.pushViewController(ViewController(), animated: true)
-        let user = User(email: emailText.text!, password: passwordText.text!)
+        
         
     }
     @objc func register(){
+        // creates a new user, this would be used by networking but routes were not recieved in time 
+        let user = User(email: emailText.text!, password: passwordText.text!)
+        
         
         //navigationController?.pushViewController(ViewController(), animated: true)
         

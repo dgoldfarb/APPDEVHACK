@@ -16,6 +16,7 @@ class DetailsViewController: UIViewController {
     let appearance = UINavigationBarAppearance()
     let name = UITextView()
     let saveinfo = UIButton()
+    
     var setTime = ""
     var date = ""
     let menuOpen = UIButton()
@@ -37,10 +38,13 @@ class DetailsViewController: UIViewController {
     let timeSelect: DropDown = {
         let timeSelect = DropDown()
         timeSelect.dataSource = [
-            "8:30-9:30",
-            "9:30-10:30",
-            "10:30-11:30"
-        
+            "12:00-1:00",
+            "1:00-2:00",
+            "2:00-3:00",
+            "4:00-5:00",
+            "6:00-7:00",
+            "8:00-9:00"
+            
         ]
         
         return timeSelect
@@ -92,6 +96,7 @@ class DetailsViewController: UIViewController {
         timeSelect.anchorView = menuOpen
         timeSelect.clipsToBounds = false
         timeSelect.cornerRadius = 10
+        
         
         appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
         appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
@@ -147,12 +152,8 @@ class DetailsViewController: UIViewController {
             datePicker.topAnchor.constraint(equalTo:bookingLable.bottomAnchor, constant: 20),
             datePicker.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            
-            
         
         ])
-        
-        
         
         
  
