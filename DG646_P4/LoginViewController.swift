@@ -13,6 +13,7 @@ class LoginViewController: UIViewController {
     let passwordText = UITextField()
     let loginButton = UIButton()
     let registerButton = UIButton()
+    var user = User(email: "Sample", password: "Sample")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,13 +110,20 @@ class LoginViewController: UIViewController {
     }
     
     @objc func login(){
-        navigationController?.pushViewController(ViewController(), animated: true)
-        
+        if emailText.text == user.email || passwordText.text == user.password{
+            navigationController?.pushViewController(ViewController(), animated: true)
+        }
+        else{
+            emailText.text = "wrong info"
+            passwordText.text = "wrong info"
+        }
         
     }
     @objc func register(){
         // creates a new user, this would be used by networking but routes were not recieved in time 
-        let user = User(email: emailText.text!, password: passwordText.text!)
+        user.password = passwordText.text!
+        user.email = emailText.text!
+     
         
         
         //navigationController?.pushViewController(ViewController(), animated: true)

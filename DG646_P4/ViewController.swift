@@ -10,8 +10,8 @@ import UIKit
 class ViewController: UIViewController{
     
     var gyms: [GYM] = []
-    var locationData: [Location] = []
-    var facilityData: [Facility] = []
+//    var locationData: [Location] = []
+//    var facilityData: [Facility] = []
     var reservations: [Reservation] = []
     let GymTable = UITableView()
     let reusableidentifier = "contactResueidentifier"
@@ -36,13 +36,13 @@ class ViewController: UIViewController{
         let morrison = GYM(gympic: "reis", name: "Reis Tennis Courts")
         let teagle = GYM(gympic: "grumman", name: "Grumman Squash Courts")
         let badminton = GYM(gympic: "badminton", name: "Badminton courts")
-        let res1 = Reservation(time: "10:30", date: "thursday", gym: "newman")
+        
         
         
         
 
         gyms = [newman,noyes,morrison,teagle, badminton]
-        reservations = [res1]
+        reservations = []
         
         GymTable.translatesAutoresizingMaskIntoConstraints = false
         GymTable.backgroundColor = .white
